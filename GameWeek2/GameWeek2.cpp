@@ -3,16 +3,17 @@
 
 #include <iostream>
 #include "NoCommandDemo.h"
+#include "CommandDemo.h"
 
 int main()
 {
-	NoCommandDemo* ncd = new NoCommandDemo();
-	std::cout << "NoCommands: \n";
-	ncd->HandleInput("X");
-	ncd->HandleInput("Y");
-	ncd->HandleInput("A");
-	ncd->HandleInput("B");
-	delete ncd;
+	CommandDemo* cd = new CommandDemo();
+	std::cout << "\nCommands:\n";
+	cd->HandleInput("X");
+	cd->HandleInput("Y");
+	cd->HandleInput("A");
+	cd->HandleInput("B");
+	delete cd;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
