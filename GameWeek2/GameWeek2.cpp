@@ -7,21 +7,19 @@
 #include "Unit.h"
 #include "Physics.h"
 #include "Achievements.h"
+#include "Robots.h"
 
 int main()
 {
-	Achievements* achievements = new Achievements();
-	//Physics* physics = new Physics();
-	Unit* unit = new Unit();
+	InheritanceRobot* ir = new InheritanceRobot();
+	std::cout << "Inheritance Robot\n";
+	ir->Grab();
+	ir->Walk();
 
-	Physics::Instance().GetEventFalling()->AddObserver(achievements);
-	unit->MoveTo(0, 1);
-	unit->MoveTo(0, 0);
-	unit->MoveTo(0, -1);
-	Physics::Instance().Update(unit);
-
-	delete unit;
-	delete achievements;
+	CompositionRobot* cr = new CompositionRobot();
+	std::cout << "\nCompostion Robot\n";
+	cr->Grab();
+	cr->Walk();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
