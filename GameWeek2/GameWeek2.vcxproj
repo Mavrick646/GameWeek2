@@ -140,6 +140,7 @@
     <ClCompile Include="Robots.cpp" />
     <ClCompile Include="Singleton.cpp" />
     <ClCompile Include="Subject.cpp" />
+    <ClCompile Include="ThreadTest.cpp" />
     <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +156,7 @@
     <ClInclude Include="Robots.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="Subject.h" />
+    <ClInclude Include="ThreadTest.h" />
     <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

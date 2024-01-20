@@ -10,32 +10,13 @@
 #include "Robots.h"
 #include "ObjectPool.h"
 #include "Resource.h"
+#include"ThreadTest.h"
 
 int main()
 {
-	ObjectPool<Resource>* pool = new ObjectPool<Resource>();
-	// Resources will be created.
-	Resource* one = pool->GetResource();
-	one->SetValue(10);
-	std::cout << "one = " << one->GetValue() << " [" << one << "]" << std::endl;
-
-	Resource* two = pool->GetResource();
-	two->SetValue(20);
-	std::cout << "two = " << two->GetValue() << " [" << two << "]" << std::endl;
-
-	pool->ReleaseResource(one);
-	pool->ReleaseResource(two);
-
-	//Resources will be reused 
-	//Note value of both resources was reset
-
-	one = pool->GetResource();
-	std::cout << "one = " << one->GetValue() << " [" << one << "]" << std::endl;
-
-	two = pool->GetResource();
-	std::cout << "two = " << two->GetValue() << " [" << two << "]" << std::endl;
-
-	delete pool;
+	ThreadTest* test = new ThreadTest();
+	test->TestStaticFunctionPointer();
+	delete test;
 
 }
 
