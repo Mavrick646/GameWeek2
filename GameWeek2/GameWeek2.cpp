@@ -11,15 +11,17 @@
 
 int main()
 {
-	InheritanceRobot* ir = new InheritanceRobot();
-	std::cout << "Inheritance Robot\n";
-	ir->Grab();
-	ir->Walk();
+	Unit* unit = new Unit();
 
-	CompositionRobot* cr = new CompositionRobot();
-	std::cout << "\nCompostion Robot\n";
-	cr->Grab();
-	cr->Walk();
+	float count = 0.0f;
+	while (count < 10)
+	{
+		unit->Update();
+		unit->MoveTo((int)count, 10);
+		std::cout << unit->GetCachedData().str() << "\n";
+		count += 0.333f;
+	};
+	delete unit;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
