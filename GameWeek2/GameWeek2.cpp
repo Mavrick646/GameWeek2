@@ -8,20 +8,35 @@
 #include "Physics.h"
 #include "Achievements.h"
 #include "Robots.h"
+#include "ObjectPool.h"
+#include "Resource.h"
 
 int main()
 {
-	Unit* unit = new Unit();
+	ObjectPool<Resource>* pool = new ObjectPool<Resource>();
+	// Resources will be created.
+	Resource* one = pool->GetResource();
+	one->SetValue(10);
+	std::cout << "one = " << one->GetValue() << " [" << one << "]" << std::endl;
 
-	float count = 0.0f;
-	while (count < 10)
-	{
-		unit->Update();
-		unit->MoveTo((int)count, 10);
-		std::cout << unit->GetCachedData().str() << "\n";
-		count += 0.333f;
-	};
-	delete unit;
+	Resource* two = pool->GetResource();
+	two->SetValue(20);
+	std::cout << "two = " << two->GetValue() << " [" << two << "]" << std::endl;
+
+	pool->ReleaseResource(one);
+	pool->ReleaseResource(two);
+
+	//Resources will be reused 
+	//Note value of both resources was reset
+
+	one = pool->GetResource();
+	std::cout << "one = " << one->GetValue() << " [" << one << "]" << std::endl;
+
+	two = pool->GetResource();
+	std::cout << "two = " << two->GetValue() << " [" << two << "]" << std::endl;
+
+	delete pool;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
