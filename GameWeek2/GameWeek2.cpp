@@ -15,7 +15,7 @@
 int main()
 {
 	ThreadTest* test = new ThreadTest();
-	test->TestFunctionObject();
+	test->TestLambdaFunction();
 	delete test;
 
 }
