@@ -15,7 +15,7 @@
 int main()
 {
 	ThreadTest* test = new ThreadTest();
-	test->TestStaticFunctionPointer();
+	test->TestInstanceFunctionPointer();
 	delete test;
 
 }
